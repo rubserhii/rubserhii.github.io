@@ -39,8 +39,3 @@ rubserhii.github.io/
     ├── fpv/             ← FPV drone entries
     └── scuba/           ← Scuba entries
 ```
-
----
-
-*That's everything. The hardest part is the first setup — after that,
-adding a new entry is: write Markdown → add photo → git push.*
