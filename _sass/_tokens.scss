@@ -1,0 +1,29 @@
+// ─────────────────────────────────────────────
+//  RUKH — Design Tokens
+//  Edit this file to change the whole site's
+//  colour palette, fonts, and spacing.
+// ─────────────────────────────────────────────
+
+// Colours
+$bg:        #131311;
+$bg2:       #1c1b18;
+$bg3:       #242320;
+$surface:   #2a2925;
+$border:    #3a3830;
+$muted:     #7a7268;
+$body:      #c8bfb0;
+$heading:   #e8e0d0;
+$accent:    #b8956a;   // bronze — from the RAYS wheels
+$accent2:   #8a6e4f;
+$red:       #c44a3a;
+
+// Typography
+$font-display: 'Cormorant Garamond', Georgia, serif;
+$font-mono:    'Space Mono', monospace;
+
+// Spacing
+$pad:     48px;
+$pad-sm:  24px;
+
+// Breakpoints
+$mobile: 900px;

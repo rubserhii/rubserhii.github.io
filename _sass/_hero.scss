@@ -1,0 +1,189 @@
+// ─────────────────────────────────────────────
+//  RUKH — Hero
+// ─────────────────────────────────────────────
+
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    filter: brightness(0.75) contrast(1.1);
+  }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(19,19,17,0.3) 0%, rgba(19,19,17,0.0) 30%, rgba(19,19,17,0.7) 75%, rgba(19,19,17,1) 100%),
+    linear-gradient(to right, rgba(19,19,17,0.5) 0%, transparent 60%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 $pad 64px;
+  max-width: 900px;
+
+  > * {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroIn 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  }
+
+  @media (max-width: $mobile) {
+    padding: 0 $pad-sm 48px;
+  }
+}
+
+@keyframes heroIn {
+  to { opacity: 1; transform: none; }
+}
+
+.hero-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: $accent;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  animation-delay: 0.3s;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: $accent;
+  }
+}
+
+.hero-title {
+  font-family: $font-display;
+  font-size: clamp(52px, 8vw, 96px);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  color: $heading;
+  margin-bottom: 28px;
+  animation-delay: 0.5s;
+
+  em {
+    font-style: italic;
+    color: $accent;
+  }
+}
+
+.hero-sub {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: $muted;
+  max-width: 440px;
+  line-height: 1.9;
+  margin-bottom: 40px;
+  animation-delay: 0.65s;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $heading;
+  border: 1px solid $border;
+  padding: 14px 28px;
+  animation-delay: 0.8s;
+  transition: border-color 0.2s, color 0.2s;
+
+  &:hover { border-color: $accent; color: $accent; }
+  &::after { content: '→'; color: $accent; }
+}
+
+.hero-scroll {
+  position: absolute;
+  right: $pad;
+  bottom: 64px;
+  z-index: 2;
+  writing-mode: vertical-rl;
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: $muted;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  &::after {
+    content: '';
+    width: 1px;
+    height: 48px;
+    background: $border;
+  }
+
+  @media (max-width: $mobile) { right: $pad-sm; }
+}
+
+// ── Status strip ───────────────────────────────
+.status-strip {
+  background: $surface;
+  border-top: 1px solid $border;
+  border-bottom: 1px solid $border;
+  padding: 14px $pad;
+  display: flex;
+  gap: 48px;
+  overflow-x: auto;
+
+  @media (max-width: $mobile) { padding: 14px $pad-sm; }
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.status-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: $accent;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.status-label {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $muted;
+}
+
+.status-value {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: $body;
+}

@@ -1,0 +1,84 @@
+# ─────────────────────────────────────────────
+#  RUKH — rubserhii.github.io
+#  Jekyll Configuration
+# ─────────────────────────────────────────────
+
+title: "RUKH"
+tagline: "Built, ridden, flown, dived."
+description: "A personal site by Serhii Rubtsov. Del Sol build log, bikepacking, FPV drones, and scuba diving. Vancouver, BC."
+author: "Serhii Rubtsov"
+url: "https://rubserhii.github.io"
+baseurl: ""
+
+# ── Build ──────────────────────────────────────
+markdown: kramdown
+highlighter: rouge
+permalink: /:collection/:slug/
+
+# ── Collections ───────────────────────────────
+# Each hobby is its own collection so they stay
+# organised in separate folders and can have
+# their own layout/templates later.
+collections:
+  del_sol:
+    output: true
+    permalink: /del-sol/:slug/
+    label: "Del Sol"
+  cycling:
+    output: true
+    permalink: /cycling/:slug/
+    label: "Cycling"
+  fpv:
+    output: true
+    permalink: /fpv/:slug/
+    label: "FPV Drones"
+  scuba:
+    output: true
+    permalink: /scuba/:slug/
+    label: "Scuba"
+
+# ── Defaults ──────────────────────────────────
+# Sets the default layout for each collection
+# so you never have to specify it in a post.
+defaults:
+  - scope:
+      path: ""
+      type: "del_sol"
+    values:
+      layout: "entry"
+      collection_label: "Del Sol"
+      collection_slug: "del-sol"
+  - scope:
+      path: ""
+      type: "cycling"
+    values:
+      layout: "entry"
+      collection_label: "Cycling"
+      collection_slug: "cycling"
+  - scope:
+      path: ""
+      type: "fpv"
+    values:
+      layout: "entry"
+      collection_label: "FPV Drones"
+      collection_slug: "fpv"
+  - scope:
+      path: ""
+      type: "scuba"
+    values:
+      layout: "entry"
+      collection_label: "Scuba"
+      collection_slug: "scuba"
+
+# ── Sass ───────────────────────────────────────
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# ── Exclude from build ────────────────────────
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - .git

@@ -1,0 +1,471 @@
+// ─────────────────────────────────────────────
+//  RUKH — Components
+// ─────────────────────────────────────────────
+
+// ── Section padding ────────────────────────────
+section {
+  padding: 100px $pad;
+  @media (max-width: $mobile) { padding: 72px $pad-sm; }
+}
+
+// ── Build Log ──────────────────────────────────
+.build-log {
+  background: $bg2;
+  border-top: 1px solid $border;
+}
+
+.build-featured {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-bottom: 2px;
+
+  @media (max-width: $mobile) { grid-template-columns: 1fr; }
+}
+
+.build-featured-image {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: $bg3;
+
+  img {
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+    filter: brightness(0.8) contrast(1.05);
+  }
+  &:hover img { transform: scale(1.04); }
+}
+
+.build-featured-text {
+  background: $bg3;
+  padding: 52px $pad;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (max-width: $mobile) { padding: 36px $pad-sm; }
+}
+
+.build-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+
+  @media (max-width: $mobile) { grid-template-columns: 1fr 1fr; }
+}
+
+// ── Entry meta ────────────────────────────────
+.entry-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.entry-num {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: $accent;
+}
+.entry-date {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: $muted;
+}
+.entry-tag {
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $accent2;
+  border: 1px solid $accent2;
+  padding: 2px 8px;
+}
+
+// ── Entry title / excerpt ─────────────────────
+.entry-title {
+  font-family: $font-display;
+  font-size: clamp(24px, 3vw, 38px);
+  font-weight: 300;
+  color: $heading;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.entry-excerpt {
+  font-size: 12px;
+  line-height: 1.9;
+  color: $muted;
+  margin-bottom: 40px;
+  max-width: 440px;
+}
+
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: $accent;
+  transition: gap 0.2s;
+
+  &:hover { gap: 18px; }
+  &::after { content: '——→'; }
+}
+
+// ── Build Card ────────────────────────────────
+.build-card {
+  background: $bg3;
+  overflow: hidden;
+  cursor: pointer;
+
+  .build-card-img {
+    aspect-ratio: 16/10;
+    background: $surface;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      filter: brightness(0.75) contrast(1.1);
+      transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), filter 0.3s;
+    }
+  }
+
+  &:hover .build-card-img img {
+    transform: scale(1.05);
+    filter: brightness(0.9) contrast(1.05);
+  }
+
+  .build-card-body {
+    padding: 28px 28px 32px;
+    border-top: 1px solid $border;
+
+    .entry-meta { margin-bottom: 12px; }
+  }
+
+  .build-card-title {
+    font-family: $font-display;
+    font-size: 20px;
+    font-weight: 300;
+    color: $heading;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .build-card-excerpt {
+    font-size: 11px;
+    color: $muted;
+    line-height: 1.8;
+  }
+}
+
+// ── Spec Plate ────────────────────────────────
+.spec-plate {
+  background: $bg;
+  border-top: 1px solid $border;
+  padding: 80px $pad;
+
+  @media (max-width: $mobile) { padding: 60px $pad-sm; }
+}
+
+.spec-grid {
+  display: grid;
+  grid-template-columns: 1fr 2px repeat(2, 1fr);
+  gap: 0;
+
+  @media (max-width: $mobile) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    .spec-divider { display: none; }
+  }
+}
+
+.spec-divider { background: $border; }
+
+.spec-group {
+  padding: 0 $pad;
+  &:first-child { padding-left: 0; }
+  &:last-child { padding-right: 0; }
+}
+
+.spec-group-label {
+  font-size: 8px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: $accent;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid $border;
+}
+
+.spec-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(58, 56, 48, 0.4);
+}
+.spec-key {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: $muted;
+}
+.spec-val {
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: $body;
+  &.accent { color: $accent; }
+}
+
+// ── Hobby Cards ───────────────────────────────
+.hobbies {
+  background: $bg2;
+  border-top: 1px solid $border;
+}
+
+.hobby-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+
+  @media (max-width: $mobile) { grid-template-columns: 1fr; }
+}
+
+.hobby-card {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: $bg3;
+  cursor: pointer;
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  &::before {
+    top: 16px; left: 16px;
+    width: 20px; height: 20px;
+    border-top: 1px solid $accent;
+    border-left: 1px solid $accent;
+  }
+  &::after {
+    bottom: 16px; right: 16px;
+    width: 20px; height: 20px;
+    border-bottom: 1px solid $accent;
+    border-right: 1px solid $accent;
+  }
+  &:hover::before, &:hover::after { opacity: 1; }
+
+  .hobby-bg {
+    position: absolute;
+    inset: 0;
+    transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.5) contrast(1.1);
+    }
+  }
+  &:hover .hobby-bg { transform: scale(1.06); }
+
+  .hobby-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(19,19,17,0.95) 0%, rgba(19,19,17,0.2) 60%, transparent 100%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 36px 32px;
+  }
+
+  .hobby-icon {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: $accent;
+    margin-bottom: 12px;
+  }
+  .hobby-name {
+    font-family: $font-display;
+    font-size: 32px;
+    font-weight: 300;
+    color: $heading;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .hobby-desc {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: $muted;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .hobby-count {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: $accent2;
+  }
+}
+
+// ── Latest list ───────────────────────────────
+.latest {
+  background: $bg;
+  border-top: 1px solid $border;
+}
+
+.latest-list { display: flex; flex-direction: column; }
+
+.latest-item {
+  display: grid;
+  grid-template-columns: 180px 1fr auto;
+  align-items: center;
+  gap: 40px;
+  padding: 28px 0;
+  border-bottom: 1px solid $border;
+  cursor: pointer;
+  transition: background 0.15s, padding 0.15s, margin 0.15s;
+
+  &:hover {
+    background: rgba(42, 41, 37, 0.4);
+    margin: 0 (-$pad);
+    padding: 28px $pad;
+  }
+
+  .latest-item-img {
+    aspect-ratio: 16/9;
+    background: $bg3;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      filter: brightness(0.8);
+      transition: transform 0.4s;
+    }
+  }
+  &:hover .latest-item-img img { transform: scale(1.06); }
+
+  .latest-item-section {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: $accent;
+    margin-bottom: 8px;
+  }
+  .latest-item-title {
+    font-family: $font-display;
+    font-size: 22px;
+    font-weight: 300;
+    color: $heading;
+    margin-bottom: 8px;
+  }
+  .latest-item-date {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: $muted;
+  }
+  .latest-item-arrow {
+    font-size: 18px;
+    color: $border;
+    transition: color 0.2s, transform 0.2s;
+  }
+  &:hover .latest-item-arrow {
+    color: $accent;
+    transform: translateX(6px);
+  }
+
+  @media (max-width: $mobile) {
+    grid-template-columns: 100px 1fr auto;
+    gap: 16px;
+    &:hover { margin: 0 (-$pad-sm); padding: 28px $pad-sm; }
+  }
+}
+
+// ── Footer ────────────────────────────────────
+footer {
+  background: $bg2;
+  border-top: 1px solid $border;
+  padding: 60px $pad;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+
+  @media (max-width: $mobile) {
+    grid-template-columns: 1fr;
+    padding: 48px $pad-sm;
+  }
+}
+
+.footer-logo {
+  font-family: $font-display;
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: $heading;
+  margin-bottom: 12px;
+}
+.footer-tagline {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: $muted;
+  line-height: 1.8;
+}
+.footer-nav-title {
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: $accent;
+  margin-bottom: 20px;
+}
+.footer-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  a {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: $muted;
+    transition: color 0.2s;
+    &:hover { color: $body; }
+  }
+}
+.footer-bottom {
+  grid-column: 1 / -1;
+  padding-top: 40px;
+  border-top: 1px solid $border;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-copy {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: $muted;
+}
+.footer-ukr {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: $muted;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ua-flag {
+  display: inline-flex;
+  flex-direction: column;
+  width: 18px;
+  height: 12px;
+  overflow: hidden;
+  .ua-blue   { flex: 1; background: #005BBB; }
+  .ua-yellow { flex: 1; background: #FFD500; }
+}

@@ -1,0 +1,49 @@
+---
+layout: default
+title: Del Sol Build Log
+description: "A running build log of the 1993 Honda Del Sol restoration project."
+permalink: /del-sol/
+---
+
+<div class="collection-index">
+
+  <div class="collection-hero">
+    <div class="section-header">
+      <span class="section-label">Del Sol</span>
+      <h1 class="section-title">Build Log</h1>
+      <div class="section-rule"></div>
+    </div>
+    <p style="font-size:12px;color:#7a7268;max-width:520px;line-height:1.9;">
+      1993 Honda Del Sol — EG2 chassis. Suspension first, then interior, then custom work.
+      Documented as it happens, in order, without skipping the ugly parts.
+    </p>
+  </div>
+
+  {% assign entries = site.del_sol | sort: 'date' | reverse %}
+
+  <div class="collection-grid" style="padding: 64px 48px;">
+    {% for entry in entries %}
+    <a href="{{ entry.url | relative_url }}" class="build-card reveal">
+      <div class="build-card-img">
+        {% if entry.hero_image %}
+          <img src="{{ entry.hero_image | relative_url }}" alt="{{ entry.title }}" loading="lazy" />
+        {% endif %}
+      </div>
+      <div class="build-card-body">
+        <div class="entry-meta">
+          {% if entry.entry_num %}<span class="entry-num">ENTRY {{ entry.entry_num | prepend: '000' | slice: -3, 3 }}</span>{% endif %}
+          <span class="entry-date">{{ entry.date | date: "%b %-d, %Y" }}</span>
+          {% for tag in entry.tags %}<span class="entry-tag">{{ tag }}</span>{% endfor %}
+        </div>
+        <h2 class="build-card-title">{{ entry.title }}</h2>
+        <p class="build-card-excerpt">{{ entry.excerpt_text | default: entry.excerpt | strip_html | truncatewords: 30 }}</p>
+      </div>
+    </a>
+    {% endfor %}
+
+    {% if entries.size == 0 %}
+    <p style="color:#7a7268;font-size:12px;grid-column:1/-1;">No entries yet — first one is coming soon.</p>
+    {% endif %}
+  </div>
+
+</div>

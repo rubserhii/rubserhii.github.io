@@ -1,0 +1,99 @@
+---
+layout: default
+---
+
+<article class="entry-page">
+
+  <!-- Hero image (optional) -->
+  {% if page.hero_image %}
+  <div class="entry-hero">
+    <img src="{{ page.hero_image | relative_url }}" alt="{{ page.title }}" />
+    <div class="entry-hero-overlay"></div>
+    <div class="entry-hero-info">
+      <div class="entry-meta">
+        {% if page.entry_num %}
+          <span class="entry-num">ENTRY {{ page.entry_num | prepend: '000' | slice: -3, 3 }}</span>
+        {% endif %}
+        <span class="entry-date">{{ page.date | date: "%b %-d, %Y" }}</span>
+        {% if page.tags %}
+          {% for tag in page.tags %}
+            <span class="entry-tag">{{ tag }}</span>
+          {% endfor %}
+        {% endif %}
+      </div>
+      <h1 class="entry-title">{{ page.title }}</h1>
+    </div>
+  </div>
+  {% else %}
+  <!-- No hero image — show title block instead -->
+  <div style="padding: 140px {{ site.pad | default: '48px' }} 60px; background: {{ site.bg2 | default: '#1c1b18' }}; border-bottom: 1px solid #3a3830;">
+    <div class="entry-meta">
+      {% if page.entry_num %}
+        <span class="entry-num">ENTRY {{ page.entry_num | prepend: '000' | slice: -3, 3 }}</span>
+      {% endif %}
+      <span class="entry-date">{{ page.date | date: "%b %-d, %Y" }}</span>
+      {% if page.tags %}
+        {% for tag in page.tags %}
+          <span class="entry-tag">{{ tag }}</span>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <h1 class="entry-title" style="max-width: 800px;">{{ page.title }}</h1>
+  </div>
+  {% endif %}
+
+  <!-- Body content -->
+  <div class="entry-body">
+
+    {% if page.excerpt_text %}
+    <p class="entry-excerpt">{{ page.excerpt_text }}</p>
+    <hr style="border: none; border-top: 1px solid #3a3830; margin: 40px 0;" />
+    {% endif %}
+
+    <div class="prose">
+      {{ content }}
+    </div>
+
+    <!-- Image gallery (optional) -->
+    {% if page.gallery %}
+    <div class="entry-images cols-{{ page.gallery | size | at_most: 3 }}">
+      {% for image in page.gallery %}
+        <img src="{{ image | relative_url }}" alt="{{ page.title }} — photo" loading="lazy" />
+      {% endfor %}
+    </div>
+    {% endif %}
+
+  </div>
+
+  <!-- Prev / Next navigation -->
+  {% assign collection_name = page.collection %}
+  {% assign all_entries = site[collection_name] | sort: 'date' %}
+  {% assign current_index = nil %}
+  {% for entry in all_entries %}
+    {% if entry.url == page.url %}
+      {% assign current_index = forloop.index0 %}
+    {% endif %}
+  {% endfor %}
+
+  <nav class="entry-nav">
+    {% if current_index > 0 %}
+      {% assign prev_entry = all_entries[current_index | minus: 1] %}
+      <a href="{{ prev_entry.url | relative_url }}" class="entry-nav-item prev">
+        <span class="nav-direction">Previous Entry</span>
+        <span class="nav-title">{{ prev_entry.title }}</span>
+      </a>
+    {% else %}
+      <div></div>
+    {% endif %}
+
+    {% assign next_index = current_index | plus: 1 %}
+    {% if next_index < all_entries.size %}
+      {% assign next_entry = all_entries[next_index] %}
+      <a href="{{ next_entry.url | relative_url }}" class="entry-nav-item next">
+        <span class="nav-direction">Next Entry</span>
+        <span class="nav-title">{{ next_entry.title }}</span>
+      </a>
+    {% endif %}
+  </nav>
+
+</article>
