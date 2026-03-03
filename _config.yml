@@ -19,6 +19,7 @@ permalink: /:collection/:slug/
 # Each hobby is its own collection so they stay
 # organised in separate folders and can have
 # their own layout/templates later.
+
 collections:
   del_sol:
     output: true
@@ -32,10 +33,10 @@ collections:
     output: true
     permalink: /fpv/:slug/
     label: "FPV Drones"
-  scuba:
-    output: true
-    permalink: /scuba/:slug/
-    label: "Scuba"
+  #scuba:
+   # output: true
+   # permalink: /scuba/:slug/
+   # label: "Scuba"
 
 # ── Defaults ──────────────────────────────────
 # Sets the default layout for each collection

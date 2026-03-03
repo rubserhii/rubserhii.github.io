@@ -3,7 +3,6 @@ layout: default
 title: Home
 ---
 
-<!-- ── HERO ──────────────────────────────────── -->
 <section class="hero">
   <div class="hero-bg">
     <img src="{{ '/assets/images/del-sol-hero.jpeg' | relative_url }}" alt="1993 Honda Del Sol" />
@@ -18,8 +17,7 @@ title: Home
       purpose.
     </h1>
     <p class="hero-sub">
-      A work-in-progress. Suspension first, then the interior,
-      then whatever comes next. Documented honestly — the mess,
+      A work-in-progress. Drive well, then look well. Documented honestly — the mess,
       the progress, the decisions.
     </p>
     <a href="{{ '/del-sol/' | relative_url }}" class="hero-cta">Follow the build</a>
@@ -27,7 +25,6 @@ title: Home
   <div class="hero-scroll">Scroll</div>
 </section>
 
-<!-- ── STATUS STRIP ──────────────────────────── -->
 <div class="status-strip">
   <div class="status-item">
     <div class="status-dot"></div>
@@ -40,7 +37,7 @@ title: Home
   </div>
   <div class="status-item">
     <span class="status-label">Wheels</span>
-    <span class="status-value">RAYS · Bronze</span>
+    <span class="status-value">CP22 · Bronze</span>
   </div>
   <div class="status-item">
     <span class="status-label">Location</span>
@@ -55,18 +52,16 @@ title: Home
   {% endif %}
 </div>
 
-<!-- ── BUILD LOG PREVIEW ──────────────────────── -->
 {% assign del_sol_entries = site.del_sol | sort: 'date' | reverse %}
 {% if del_sol_entries.size > 0 %}
 <section class="build-log" id="build-log">
   <div class="section-header reveal">
     <span class="section-label">001</span>
-    <h2 class="section-title">Del Sol Build Log</h2>
+    <h2 class="section-title">"Spicy" Del Sol Build Log</h2>
     <div class="section-rule"></div>
     <a href="{{ '/del-sol/' | relative_url }}" style="font-size:9px;letter-spacing:0.2em;color:#b8956a;text-transform:uppercase;white-space:nowrap;">All entries →</a>
   </div>
 
-  <!-- Featured latest entry -->
   {% assign featured = del_sol_entries[0] %}
   <div class="build-featured reveal">
     {% if featured.hero_image %}
@@ -77,7 +72,7 @@ title: Home
     <div class="build-featured-text">
       <div>
         <div class="entry-meta">
-          {% if featured.entry_num %}<span class="entry-num">ENTRY {{ featured.entry_num | prepend: '000' | slice: -3, 3 }}</span>{% endif %}
+          {% if featured.entry_num %}<span class="entry-num">ENTRY {{ featured.entry_num }}</span>{% endif %}
           <span class="entry-date">{{ featured.date | date: "%b %-d, %Y" }}</span>
           {% for tag in featured.tags %}<span class="entry-tag">{{ tag }}</span>{% endfor %}
         </div>
@@ -88,7 +83,6 @@ title: Home
     </div>
   </div>
 
-  <!-- Remaining entries as cards -->
   {% if del_sol_entries.size > 1 %}
   <div class="build-list reveal reveal-delay-1">
     {% for entry in del_sol_entries offset: 1 limit: 3 %}
@@ -100,7 +94,7 @@ title: Home
       </div>
       <div class="build-card-body">
         <div class="entry-meta">
-          {% if entry.entry_num %}<span class="entry-num">ENTRY {{ entry.entry_num | prepend: '000' | slice: -3, 3 }}</span>{% endif %}
+          {% if entry.entry_num %}<span class="entry-num">ENTRY {{ entry.entry_num }}</span>{% endif %}
           <span class="entry-date">{{ entry.date | date: "%b %-d, %Y" }}</span>
         </div>
         <h4 class="build-card-title">{{ entry.title }}</h4>
@@ -113,7 +107,6 @@ title: Home
 </section>
 {% endif %}
 
-<!-- ── SPEC PLATE ─────────────────────────────── -->
 <div class="spec-plate">
   <div class="section-header reveal">
     <span class="section-label">Spec</span>
@@ -136,7 +129,7 @@ title: Home
       <div class="spec-item"><span class="spec-key">Interior</span><span class="spec-val">Queued</span></div>
       <div class="spec-item"><span class="spec-key">Engine</span><span class="spec-val">TBD</span></div>
       <div class="spec-item"><span class="spec-key">Body</span><span class="spec-val">Original</span></div>
-      <div class="spec-item"><span class="spec-key">Wheels</span><span class="spec-val">RAYS · Bronze</span></div>
+      <div class="spec-item"><span class="spec-key">Wheels</span><span class="spec-val">CP22 · Bronze</span></div>
     </div>
     <div class="spec-group">
       <div class="spec-group-label">Custom Work</div>
@@ -147,7 +140,6 @@ title: Home
   </div>
 </div>
 
-<!-- ── HOBBIES ────────────────────────────────── -->
 <section class="hobbies" id="hobbies">
   <div class="section-header reveal">
     <span class="section-label">002</span>
@@ -161,9 +153,9 @@ title: Home
       </div>
       <div class="hobby-overlay">
         <div class="hobby-icon">// cycling</div>
-        <h3 class="hobby-name">Bikepacking</h3>
-        <p class="hobby-desc">Long days, loaded bags, rough roads.<br>Recent routes and gear notes.</p>
-        <span class="hobby-count">{{ site.cycling | size }} {% if site.cycling.size == 1 %}trip{% else %}trips{% endif %} logged</span>
+        <h3 class="hobby-name">Roads & Bikepacking</h3>
+        <p class="hobby-desc">Long days, loaded bags, gorgeous scenery.<br>Recent routes and gear notes.</p>
+        <span class="hobby-count">{{ site.cycling.size }} trips logged</span>
       </div>
     </a>
     <a href="{{ '/fpv/' | relative_url }}" class="hobby-card reveal reveal-delay-1">
@@ -174,7 +166,7 @@ title: Home
         <div class="hobby-icon">// fpv</div>
         <h3 class="hobby-name">FPV Drones</h3>
         <p class="hobby-desc">Building and flying freestyle quads.<br>Builds, crashes, footage.</p>
-        <span class="hobby-count">{{ site.fpv | size }} {% if site.fpv.size == 1 %}entry{% else %}entries{% endif %}</span>
+        <span class="hobby-count">{{ site.fpv.size }} entries</span>
       </div>
     </a>
     <a href="{{ '/scuba/' | relative_url }}" class="hobby-card reveal reveal-delay-2">
@@ -184,16 +176,13 @@ title: Home
       <div class="hobby-overlay">
         <div class="hobby-icon">// scuba</div>
         <h3 class="hobby-name">Scuba Diving</h3>
-        <p class="hobby-desc">Cold water, poor viz, great dives.<br>Logs and sites visited.</p>
-        <span class="hobby-count">{{ site.scuba | size }} {% if site.scuba.size == 1 %}dive{% else %}dives{% endif %} logged</span>
+        <p class="hobby-desc">Calm water, peace, great dives.<br>Logs and sites visited.</p>
+        <span class="hobby-count">{{ site.scuba.size }} dives logged</span>
       </div>
     </a>
   </div>
 </section>
 
-<!-- ── LATEST ACROSS ALL ──────────────────────── -->
-{% assign all_entries = site.del_sol | concat: site.cycling | concat: site.fpv | concat: site.scuba | sort: 'date' | reverse | limit: 5 %}
-{% if all_entries.size > 0 %}
 <section class="latest">
   <div class="section-header reveal">
     <span class="section-label">Latest</span>
@@ -201,6 +190,11 @@ title: Home
     <div class="section-rule"></div>
   </div>
   <div class="latest-list">
+    {% assign all_entries = site.del_sol %}
+    {% for entry in site.cycling %}{% assign all_entries = all_entries | push: entry %}{% endfor %}
+    {% for entry in site.fpv %}{% assign all_entries = all_entries | push: entry %}{% endfor %}
+    {% for entry in site.scuba %}{% assign all_entries = all_entries | push: entry %}{% endfor %}
+    {% assign all_entries = all_entries | sort: 'date' | reverse %}
     {% for entry in all_entries limit: 5 %}
     <a href="{{ entry.url | relative_url }}" class="latest-item reveal">
       <div class="latest-item-img">
@@ -218,4 +212,3 @@ title: Home
     {% endfor %}
   </div>
 </section>
-{% endif %}
