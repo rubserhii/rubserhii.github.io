@@ -14,7 +14,7 @@ title: "Starting point — what we're working with"
 date: 2026-03-02
 entry_num: 1
 tags: [The Beginnning, Assessment]
-excerpt_text: "Assessment of the vehicle condition before any work begins. Body rust, worn bushings throughout, subframe in better shape than expected. New name."
+excerpt_text: "Assessment of the vehicle condition before any work begins. Body rust, worn bushings throughout, subframe in better shape than expected."
 
 # Path to your main photo for this entry (put photos in assets/images/)
 hero_image: /assets/images/del_sol/001/hero.jpeg
@@ -42,8 +42,8 @@ Surprisingly solid. No rust or structural concerns. This was the
 thing I was most worried about — old Honda, Vancouver winters — but it's
 held up.
 
-## Body Rust
-Rusted wheel well panel and minor rust spots in the door frames. Nothign concerning.
+## Paint and Body Rust
+The paint has seen much better days with many of the areas either having faded or flaking clear coat. Rusted wheel well panel and minor rust spots in the door frames. Nothing concerning.
 
 ## Drivetrain
 All four axle boots are torn and both axle seals are leaking. The clutch has been replaced by the previous owner, so overall it is a win.
@@ -57,6 +57,6 @@ Both wheels and tires have seen much better days. 17in rims result in the tires 
 
 ## What's next
 
-First thing is to replace the tires and the rims as I do not appreciate tire wires peeking out at me from beneath the rubber.
+First thing is to patch up the wheel wheel rust spot and replace the tires and the rims as I do not appreciate tire wires peeking out at me from beneath the rubber.
 
 > The car doesn't need to be perfect. It needs to be right.
