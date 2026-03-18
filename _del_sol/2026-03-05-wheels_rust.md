@@ -25,7 +25,7 @@ gallery:
 ---
 
 
-Getting a new set of wheels so that the car can be my daily. Patching up the wheel well rust for damage control
+Getting a new set of wheels so that the car can be my daily. Patching up the wheel well rust for damage control.
 
 ## Why start with wheels?
 
@@ -47,3 +47,5 @@ The most concerning exterior damage was the rust spot right above the wheelwell 
 ## What's next
 
 The next step will be to replace the front left lower control arm as the subframe bushing is completely torn. Then get the axles and rear trailing arm bushings in order.
+
+> The car doesn't need to be perfect. It needs to be right.

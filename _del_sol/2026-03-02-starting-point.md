@@ -22,6 +22,7 @@ hero_image: /assets/images/del_sol/001/hero.jpeg
 # Optional: additional photos shown as a gallery at the bottom
 gallery:
    -  /assets/images/del_sol/001/posting.jpg
+   -  /assets/images/del_sol/001/in-garage.jpeg
    -  /assets/images/del_sol/001/rust.jpg
 ---
 
