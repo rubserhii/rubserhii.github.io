@@ -11,13 +11,12 @@ title: Home
   <div class="hero-content">
     <div class="hero-eyebrow">1993 Honda Del Sol · Build Log Active</div>
     <h1 class="hero-title">
-      An<br>
-      honest<br>
-      <em>build-log.</em><br>
-      and more
+      Thrill<br>
+      at<br>
+      <em>all speeds</em>
     </h1>
     <p class="hero-sub">
-      A work-in-progress. Showcasing my passion for cars and other hobbies.
+      A work-in-progress. Building a dream.
     </p>
     <a href="{{ '/del-sol/' | relative_url }}" class="hero-cta">Follow the build</a>
   </div>
@@ -139,49 +138,6 @@ title: Home
   </div>
 </div>
 
-<section class="hobbies" id="hobbies">
-  <div class="section-header reveal">
-    <span class="section-label">002</span>
-    <h2 class="section-title">Other Pursuits</h2>
-    <div class="section-rule"></div>
-  </div>
-  <div class="hobby-grid">
-    <a href="{{ '/cycling/' | relative_url }}" class="hobby-card reveal">
-      <div class="hobby-bg">
-        <img src="{{ '/assets/images/cycling-cover.jpg' | relative_url }}" alt="Bikepacking" loading="lazy" />
-      </div>
-      <div class="hobby-overlay">
-        <div class="hobby-icon">// cycling</div>
-        <h3 class="hobby-name">Roads & Bikepacking</h3>
-        <p class="hobby-desc">Long days, loaded bags, gorgeous scenery.<br>Recent routes and gear notes.</p>
-        <span class="hobby-count">{{ site.cycling.size }} trips logged</span>
-      </div>
-    </a>
-    <a href="{{ '/fpv/' | relative_url }}" class="hobby-card reveal reveal-delay-1">
-      <div class="hobby-bg">
-        <img src="{{ '/assets/images/fpv-cover.jpg' | relative_url }}" alt="FPV Drones" loading="lazy" />
-      </div>
-      <div class="hobby-overlay">
-        <div class="hobby-icon">// fpv</div>
-        <h3 class="hobby-name">FPV Drones</h3>
-        <p class="hobby-desc">Building and flying freestyle quads.<br>Builds, crashes, footage.</p>
-        <span class="hobby-count">{{ site.fpv.size }} entries</span>
-      </div>
-    </a>
-    <a href="{{ '/scuba/' | relative_url }}" class="hobby-card reveal reveal-delay-2">
-      <div class="hobby-bg">
-        <img src="{{ '/assets/images/scuba-cover.jpg' | relative_url }}" alt="Scuba Diving" loading="lazy" />
-      </div>
-      <div class="hobby-overlay">
-        <div class="hobby-icon">// scuba</div>
-        <h3 class="hobby-name">Scuba Diving</h3>
-        <p class="hobby-desc">Calm water, peace, great dives.<br>Logs and sites visited.</p>
-        <span class="hobby-count">{{ site.scuba.size }} dives logged</span>
-      </div>
-    </a>
-  </div>
-</section>
-
 <section class="latest">
   <div class="section-header reveal">
     <span class="section-label">Latest</span>
@@ -189,12 +145,8 @@ title: Home
     <div class="section-rule"></div>
   </div>
   <div class="latest-list">
-    {% assign all_entries = site.del_sol %}
-    {% for entry in site.cycling %}{% assign all_entries = all_entries | push: entry %}{% endfor %}
-    {% for entry in site.fpv %}{% assign all_entries = all_entries | push: entry %}{% endfor %}
-    {% for entry in site.scuba %}{% assign all_entries = all_entries | push: entry %}{% endfor %}
-    {% assign all_entries = all_entries | sort: 'date' | reverse %}
-    {% for entry in all_entries limit: 5 %}
+    {% assign del_sol_sorted = site.del_sol | sort: 'date' | reverse %}
+    {% for entry in del_sol_sorted limit: 5 %}
     <a href="{{ entry.url | relative_url }}" class="latest-item reveal">
       <div class="latest-item-img">
         {% if entry.hero_image %}
@@ -202,7 +154,7 @@ title: Home
         {% endif %}
       </div>
       <div class="latest-item-body">
-        <div class="latest-item-section">{{ entry.collection_label }} {% if entry.entry_num %}· Entry {{ entry.entry_num }}{% endif %}</div>
+        <div class="latest-item-section">Del Sol {% if entry.entry_num %}· Entry {{ entry.entry_num }}{% endif %}</div>
         <div class="latest-item-title">{{ entry.title }}</div>
         <div class="latest-item-date">{{ entry.date | date: "%b %-d, %Y" }}</div>
       </div>

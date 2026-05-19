@@ -5,7 +5,7 @@
 
 title: "RUKH"
 tagline: "Built, ridden, flown, dived."
-description: "A personal site by Serhii Rubtsov. Del Sol build log, bikepacking, FPV drones, and scuba diving. Vancouver, BC."
+description: "A personal site by Serhii Rubtsov. Del Sol build log. Vancouver, BC."
 author: "Serhii Rubtsov"
 url: "https://rubserhii.github.io"
 baseurl: ""
@@ -25,18 +25,18 @@ collections:
     output: true
     permalink: /del-sol/:slug/
     label: "Del Sol"
-  cycling:
-    output: true
-    permalink: /cycling/:slug/
-    label: "Cycling"
-  fpv:
-    output: true
-    permalink: /fpv/:slug/
-    label: "FPV Drones"
-  #scuba:
-   # output: true
-   # permalink: /scuba/:slug/
-   # label: "Scuba"
+  # cycling:
+  #   output: true
+  #   permalink: /cycling/:slug/
+  #   label: "Cycling"
+  # fpv:
+  #   output: true
+  #   permalink: /fpv/:slug/
+  #   label: "FPV Drones"
+  # scuba:
+  #   output: true
+  #   permalink: /scuba/:slug/
+  #   label: "Scuba"
 
 # ── Defaults ──────────────────────────────────
 # Sets the default layout for each collection
@@ -49,27 +49,27 @@ defaults:
       layout: "entry"
       collection_label: "Del Sol"
       collection_slug: "del-sol"
-  - scope:
-      path: ""
-      type: "cycling"
-    values:
-      layout: "entry"
-      collection_label: "Cycling"
-      collection_slug: "cycling"
-  - scope:
-      path: ""
-      type: "fpv"
-    values:
-      layout: "entry"
-      collection_label: "FPV Drones"
-      collection_slug: "fpv"
-  - scope:
-      path: ""
-      type: "scuba"
-    values:
-      layout: "entry"
-      collection_label: "Scuba"
-      collection_slug: "scuba"
+  # - scope:
+  #     path: ""
+  #     type: "cycling"
+  #   values:
+  #     layout: "entry"
+  #     collection_label: "Cycling"
+  #     collection_slug: "cycling"
+  # - scope:
+  #     path: ""
+  #     type: "fpv"
+  #   values:
+  #     layout: "entry"
+  #     collection_label: "FPV Drones"
+  #     collection_slug: "fpv"
+  # - scope:
+  #     path: ""
+  #     type: "scuba"
+  #   values:
+  #     layout: "entry"
+  #     collection_label: "Scuba"
+  #     collection_slug: "scuba"
 
 # ── Sass ───────────────────────────────────────
 sass:
